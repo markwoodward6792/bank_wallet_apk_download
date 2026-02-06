@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BankWallet App</title>
 
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <style>
 * {
     margin: 0;
@@ -90,16 +93,12 @@ h1 {
 <div class="container">
 
     <div class="logo">
-        <!-- BANK ICON MATCHING UPLOADED IMAGE -->
         <svg viewBox="0 0 64 64">
-            <!-- Roof -->
             <path d="M32 10L8 22c-1.5.8-.9 3 1 3h46c1.9 0 2.5-2.2 1-3L32 10z"/>
-            <!-- Columns -->
             <rect x="16" y="26" width="6" height="22" rx="2"/>
             <rect x="26" y="26" width="6" height="22" rx="2"/>
             <rect x="36" y="26" width="6" height="22" rx="2"/>
             <rect x="46" y="26" width="6" height="22" rx="2"/>
-            <!-- Base -->
             <path d="M12 48h40c2 0 3 2 3 4s-1 4-3 4H12c-2 0-3-2-3-4s1-4 3-4z"/>
         </svg>
     </div>
@@ -113,11 +112,32 @@ h1 {
         Simple, secure and easy to use.
     </p>
 
-    <a href="Bank Wallet V26.apk" class="btn">Download APK</a>
+    <!-- Download Button -->
+    <a href="#" class="btn" onclick="confirmDownload()">Download APK</a>
+
     <a href="https://t.me/bank_walletbot" class="btn">Use Telegram Bot</a>
     <a href="https://t.me/earndaily9ja01" class="btn">Join Telegram Channel</a>
-    
+
 </div>
+
+<script>
+function confirmDownload() {
+    Swal.fire({
+        title: 'Download App',
+        text: 'Do you want to download the app now?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Download',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#1fa33b',
+        cancelButtonColor: '#9e9e9e'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'Bank Wallet V26.apk';
+        }
+    });
+}
+</script>
 
 </body>
 </html>
